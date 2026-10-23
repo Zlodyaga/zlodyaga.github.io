@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mount Sheet Sync</title>
+<meta name="description" content="A World of Warcraft addon and a Windows tray program that keep a Google Sheet of mount farming up to date.">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <img src="logo.png" alt="">
+  <div>
+    <h1>Mount Sheet Sync</h1>
+    <div class="langs"><a href="#ru">Русский</a> · <a href="privacy.html">Privacy policy</a></div>
+  </div>
+</header>
+<p class="lead">A World of Warcraft addon and a small Windows tray program that keep your Google Sheet of mount farming
+up to date: which bosses each character killed this week, which mounts you already own, and what is still left.</p>
+
+<div class="buttons">
+  <a class="button primary" href="https://github.com/Zlodyaga/mount-sheet-sync/releases">Download</a>
+  <a class="button" href="https://github.com/Zlodyaga/mount-sheet-sync">Source code</a>
+  <a class="button" href="privacy.html">Privacy policy</a>
+</div>
+
+<h2>How it works</h2>
+<ol>
+  <li><strong>The addon</strong> (World of Warcraft Retail) notes boss kills, your characters and your mount collection
+    in its saved-variables file, and shows the “Remaining” list for the current character in the game.</li>
+  <li><strong>The program</strong> (Windows 10/11) reads that file, creates a spreadsheet in <em>your own</em> Google Drive
+    and marks kills and collected mounts there. It also brings the “Remaining” list back to the game.</li>
+</ol>
+
+<h2>Why it signs in with Google</h2>
+<div class="card">
+<p>The program signs in with your Google account only to create and update the mount spreadsheet in your Google Drive.
+It asks for:</p>
+<ul>
+  <li><code>drive.file</code> — access <strong>only to the files the program creates itself</strong>
+    (the mount spreadsheet). It cannot see or change any other file on your Google Drive.</li>
+  <li><code>openid</code> and <code>email</code> — to show in the settings which account is signed in.</li>
+</ul>
+<p>The program runs on your computer and talks to Google directly. There is no server of ours in between, no analytics
+and no advertising. Details: <a href="privacy.html">privacy policy</a>.</p>
+</div>
+
+<h2>Get started</h2>
+<ol>
+  <li>Install the addon <em>Mount Sheet Sync</em> (CurseForge, or the <code>MountSheetSync</code> folder from the release
+    archive into <code>World of Warcraft\_retail_\Interface\AddOns</code>).</li>
+  <li>Download the release archive, extract it and run <code>2-program\MountSheetSync.exe</code>.</li>
+  <li>In the settings: “Sign in with Google…” → “Create spreadsheet…” → tick your characters.</li>
+</ol>
+<p>Questions and bug reports: <a href="https://github.com/Zlodyaga/mount-sheet-sync/issues">GitHub Issues</a>.</p>
+
+<hr>
+
+<section id="ru" lang="ru">
+<h2>Mount Sheet Sync — по-русски</h2>
+<p>Аддон для World of Warcraft и небольшая программа в трее Windows, которые сами ведут вашу Google-таблицу фарма
+маунтов: каких боссов персонажи убили на этой неделе, какие маунты уже собраны и что осталось.</p>
+<h3>Зачем вход через Google</h3>
+<p>Программа входит в ваш аккаунт Google только для того, чтобы создать таблицу маунтов на вашем Google Диске и
+вести её. Она просит доступ <code>drive.file</code> — только к файлам, которые создала сама, остальной Диск ей
+недоступен, — и адрес почты (<code>openid</code>, <code>email</code>), чтобы показать в настройках, какой аккаунт
+подключён. Программа работает на вашем компьютере и обращается к Google напрямую: наших серверов, аналитики и
+рекламы нет. Подробнее — в <a href="privacy.html#ru">политике конфиденциальности</a>.</p>
+<p><a href="https://github.com/Zlodyaga/mount-sheet-sync/releases">Скачать</a> ·
+<a href="https://github.com/Zlodyaga/mount-sheet-sync">Исходный код</a> ·
+<a href="https://github.com/Zlodyaga/mount-sheet-sync/issues">Вопросы и ошибки</a></p>
+</section>
+
+<footer>
+Mount Sheet Sync is an open-source project (MIT license). World of Warcraft is a trademark of Blizzard Entertainment;
+Google Sheets and Google Drive are trademarks of Google LLC. This project is not affiliated with either.
+</footer>
+</main>
+</body>
+</html>
