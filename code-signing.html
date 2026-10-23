@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="HjjL_WrsnBHlThyc2jDRRkX_22MiPHdkxiM_3FD29Pc">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code Signing Policy · Mount Sheet Sync</title>
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <img src="logo.png" alt="">
+  <div>
+    <h1>Code Signing Policy</h1>
+    <div class="langs"><a href="index.html">Mount Sheet Sync</a> · <a href="#ru">Русский</a></div>
+  </div>
+</header>
+
+<div class="card">
+<p><strong>Status:</strong> the project has applied for free code signing for open-source projects at the SignPath
+Foundation. Until that is granted, <code>MountSheetSync.exe</code> in the releases is not signed, and Windows SmartScreen
+may show “Windows protected your PC” (“More info” → “Run anyway”).</p>
+</div>
+
+<h2>What is signed</h2>
+<p>Only <code>MountSheetSync.exe</code> — the Windows program of
+<a href="https://github.com/Zlodyaga/mount-sheet-sync">Mount Sheet Sync</a>, built from this repository. The World of
+Warcraft addon consists of plain Lua files and is not signed.</p>
+
+<h2>How releases are built</h2>
+<ul>
+  <li>Every release is built by GitHub Actions from a tagged commit of the public repository
+    (<a href="https://github.com/Zlodyaga/mount-sheet-sync/blob/main/.github/workflows/release.yml">release workflow</a>),
+    with the C# compiler that ships with Windows. Nothing is built or signed on a personal computer.</li>
+  <li>The build contains only code from this repository; it has no third-party binaries.</li>
+  <li>Signing requests are submitted by the release workflow and must be approved manually before anything is signed.</li>
+</ul>
+
+<h2>Team roles</h2>
+<ul>
+  <li>Committers and reviewers: <a href="https://github.com/Zlodyaga">Zlodyaga</a></li>
+  <li>Approvers: <a href="https://github.com/Zlodyaga">Zlodyaga</a></li>
+</ul>
+<p>All team members use multi-factor authentication for GitHub and for the signing service.</p>
+
+<h2>Privacy</h2>
+<p>The program sends data only to Google's servers, to your own Google account, when you sign in with Google to keep the
+mount spreadsheet. It does not transfer information to any other networked system. Details:
+<a href="privacy.html">privacy policy</a>.</p>
+
+<hr>
+<section id="ru" lang="ru">
+<h2>Политика подписи кода (по-русски)</h2>
+<p><strong>Состояние:</strong> проект подал заявку на бесплатную подпись кода для открытых проектов в SignPath
+Foundation. Пока её не одобрили, <code>MountSheetSync.exe</code> в выпусках не подписан, и Windows может показать
+«Windows защитила ваш компьютер» («Подробнее» → «Выполнить в любом случае»).</p>
+<p>Подписывается только <code>MountSheetSync.exe</code>. Выпуски собирает GitHub Actions из помеченного коммита
+открытого репозитория компилятором, встроенным в Windows; каждую подпись вручную одобряет
+<a href="https://github.com/Zlodyaga">Zlodyaga</a>. Программа передаёт данные только серверам Google — в ваш аккаунт,
+для ведения таблицы, — и никуда больше: <a href="privacy.html#ru">политика конфиденциальности</a>.</p>
+</section>
+
+<footer>Mount Sheet Sync · <a href="index.html">Home</a> · <a href="privacy.html">Privacy policy</a></footer>
+</main>
+</body>
+</html>
