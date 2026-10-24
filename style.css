@@ -28,3 +28,4 @@ a { color: var(--accent); }
 code { background: var(--code); padding: 1px 5px; border-radius: 4px; font-size: .92em; overflow-wrap: anywhere; }
 footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
 hr { border: 0; border-top: 1px solid var(--line); margin: 48px 0; }
+.hint { color: var(--muted); font-size: .95rem; margin-top: -8px; }
