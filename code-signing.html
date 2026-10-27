@@ -19,12 +19,16 @@
 </header>
 
 <div class="card">
-<p><strong>Status:</strong> the project is applying for free code signing for open-source projects at the SignPath
-Foundation. Until that is granted, <code>MountSheetSync.exe</code> in the releases is not signed, and Windows SmartScreen
-may show “Windows protected your PC” (“More info” → “Run anyway”).</p>
+<p><strong>Status:</strong> <code>MountSheetSync.exe</code> is currently <strong>not signed</strong>. A code signing
+certificate costs money every year, and the free signing for open-source projects (SignPath Foundation) is meant for
+projects that are already widely used, so it is not available to Mount Sheet Sync yet.</p>
+<p>Because of that, Windows SmartScreen may show “Windows protected your PC” when you start the program for the first
+time. Click “More info” → “Run anyway”. Download the program only from this website or from the project's
+<a href="https://github.com/Zlodyaga/mount-sheet-sync/releases">GitHub releases</a> — the code and the build are public,
+see below.</p>
 </div>
 
-<h2>What is signed</h2>
+<h2>What would be signed</h2>
 <p>Only <code>MountSheetSync.exe</code> — the Windows program of
 <a href="https://github.com/Zlodyaga/mount-sheet-sync">Mount Sheet Sync</a>, built from this repository. The World of
 Warcraft addon consists of plain Lua files and is not signed.</p>
@@ -35,7 +39,8 @@ Warcraft addon consists of plain Lua files and is not signed.</p>
     (<a href="https://github.com/Zlodyaga/mount-sheet-sync/blob/main/.github/workflows/release.yml">release workflow</a>),
     with the C# compiler that ships with Windows. Nothing is built or signed on a personal computer.</li>
   <li>The build contains only code from this repository; it has no third-party binaries.</li>
-  <li>Signing requests are submitted by the release workflow and must be approved manually before anything is signed.</li>
+  <li>If signing is added later, signing requests will be submitted by the release workflow and must be approved
+    manually before anything is signed.</li>
 </ul>
 
 <h2>Team roles</h2>
@@ -43,7 +48,7 @@ Warcraft addon consists of plain Lua files and is not signed.</p>
   <li>Committers and reviewers: <a href="https://github.com/Zlodyaga">Zlodyaga</a></li>
   <li>Approvers: <a href="https://github.com/Zlodyaga">Zlodyaga</a></li>
 </ul>
-<p>All team members use multi-factor authentication for GitHub and for the signing service.</p>
+<p>All team members use multi-factor authentication for GitHub.</p>
 
 <h2>Privacy</h2>
 <p>The program sends data only to Google's servers, to your own Google account, when you sign in with Google to keep the
@@ -53,12 +58,15 @@ mount spreadsheet. It does not transfer information to any other networked syste
 <hr>
 <section id="ru" lang="ru">
 <h2>Политика подписи кода (по-русски)</h2>
-<p><strong>Состояние:</strong> проект подаёт заявку на бесплатную подпись кода для открытых проектов в SignPath
-Foundation. Пока её не одобрили, <code>MountSheetSync.exe</code> в выпусках не подписан, и Windows может показать
-«Windows защитила ваш компьютер» («Подробнее» → «Выполнить в любом случае»).</p>
-<p>Подписывается только <code>MountSheetSync.exe</code>. Выпуски собирает GitHub Actions из помеченного коммита
-открытого репозитория компилятором, встроенным в Windows; каждую подпись вручную одобряет
-<a href="https://github.com/Zlodyaga">Zlodyaga</a>. Программа передаёт данные только серверам Google — в ваш аккаунт,
+<p><strong>Состояние:</strong> <code>MountSheetSync.exe</code> пока <strong>не подписан</strong>. Сертификат для
+подписи стоит денег каждый год, а бесплатная подпись для открытых проектов (SignPath Foundation) даётся уже широко
+известным проектам, поэтому Mount Sheet Sync её пока не получил.</p>
+<p>Поэтому при первом запуске Windows может показать «Windows защитила ваш компьютер» — нажмите «Подробнее» →
+«Выполнить в любом случае». Скачивайте программу только с этого сайта или из
+<a href="https://github.com/Zlodyaga/mount-sheet-sync/releases">выпусков на GitHub</a>.</p>
+<p>Выпуски собирает GitHub Actions из помеченного коммита открытого репозитория компилятором, встроенным в Windows,
+без сторонних двоичных файлов. Если подпись появится, подписываться будет только <code>MountSheetSync.exe</code>, и
+каждую подпись будет вручную одобрять <a href="https://github.com/Zlodyaga">Zlodyaga</a>. Программа передаёт данные только серверам Google — в ваш аккаунт,
 для ведения таблицы, — и никуда больше: <a href="privacy.html#ru">политика конфиденциальности</a>.</p>
 </section>
 
