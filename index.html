@@ -5,7 +5,7 @@
 <meta name="google-site-verification" content="HjjL_WrsnBHlThyc2jDRRkX_22MiPHdkxiM_3FD29Pc">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mount Sheet Sync</title>
-<meta name="description" content="A World of Warcraft addon and a Windows tray program that keep a Google Sheet of mount farming up to date.">
+<meta name="description" content="A World of Warcraft addon and a Windows tray program that track mount farming across your characters: on your computer, or in a Google Sheet if you want one.">
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -18,8 +18,9 @@
     <div class="langs"><a href="#ru">Русский</a> · <a href="privacy.html">Privacy policy</a> · <a href="code-signing.html">Code signing policy</a></div>
   </div>
 </header>
-<p class="lead">A World of Warcraft addon and a small Windows tray program that keep your Google Sheet of mount farming
-up to date: which bosses each character killed this week, which mounts you already own, and what is still left.</p>
+<p class="lead">A World of Warcraft addon and a small Windows tray program that keep your mount farming list up to
+date: which bosses each character killed this week, which mounts you already own, and what is still left. The list stays
+on your computer, or in your own Google Sheet if you want one.</p>
 
 <div class="buttons">
   <a class="button primary" href="https://github.com/Zlodyaga/mount-sheet-sync/releases/latest/download/MountSheetSync.exe">Download for Windows</a>
@@ -33,22 +34,32 @@ up to date: which bosses each character killed this week, which mounts you alrea
 <ol>
   <li><strong>The addon</strong> (World of Warcraft Retail) notes boss kills, your characters and your mount collection
     in its saved-variables file, and shows the “Remaining” list for the current character in the game.</li>
-  <li><strong>The program</strong> (Windows 10/11) reads that file, creates a spreadsheet in <em>your own</em> Google Drive
-    and marks kills and collected mounts there. It also brings the “Remaining” list back to the game.</li>
+  <li><strong>The program</strong> (Windows 10/11) reads that file and marks kills and collected mounts in your list, on your
+    computer or in your Google Sheet. It also brings the “Remaining” list back to the game.</li>
 </ol>
 
-<h2>Why it signs in with Google</h2>
+<h2>Two ways to keep your list</h2>
+<p>You choose in the program's settings. A Google Sheet can later be moved to your computer; copying data from your
+computer into a new Google Sheet is not available yet.</p>
 <div class="card">
-<p>The program signs in with your Google account only to create and update the mount spreadsheet in your Google Drive.
-It asks for:</p>
+<h3>On this computer (the default)</h3>
+<p>No Google account and no sign-in. The list is a file in <code>%APPDATA%\MountSheetSync</code>, and the program does not
+contact Google. You see everything in the game window and in the tray menu, and new characters are added by themselves.
+The file does not move to another computer on its own, so copy the folder now and then to keep a backup.</p>
+</div>
+<div class="card">
+<h3>In a Google Sheet (optional)</h3>
+<p>A spreadsheet in <em>your own</em> Google Drive, with a sheet per character and skip and farming tips. Open it in a
+browser and edit it by hand. Only in this mode the program signs in with your Google account, to create and update that
+spreadsheet. It asks for:</p>
 <ul>
   <li><code>drive.file</code> — access <strong>only to the files the program creates itself</strong>
     (the mount spreadsheet). It cannot see or change any other file on your Google Drive.</li>
   <li><code>openid</code> and <code>email</code> — to show in the settings which account is signed in.</li>
 </ul>
-<p>The program runs on your computer and talks to Google directly. There is no server of ours in between, no analytics
-and no advertising. Details: <a href="privacy.html">privacy policy</a>.</p>
 </div>
+<p>Either way the program runs on your computer. There is no server of ours in between, no analytics and no advertising.
+Details: <a href="privacy.html">privacy policy</a>.</p>
 
 <h2>Get started</h2>
 <ol>
@@ -59,8 +70,12 @@ and no advertising. Details: <a href="privacy.html">privacy policy</a>.</p>
     code-signed yet, and its full source code is <a href="https://github.com/Zlodyaga/mount-sheet-sync">on GitHub</a>.</li>
   <li>It asks to install itself — click <strong>“Yes”</strong>. It goes to your user folder (no administrator rights),
     gets a Start menu shortcut and can be removed in Windows Settings → Apps → Installed apps.</li>
-  <li>In the settings window: “Sign in with Google…” → “Create spreadsheet…” → tick your characters. Then play: kill a
-    boss, go back to character selection, and the row turns “Yes”.</li>
+  <li><strong>On this computer:</strong> this option is already selected in the settings window, so just click “Save”. Log in
+    to the game and go back to character selection: your characters appear by themselves. Then play: kill a boss, go
+    back to character selection, and it is ticked off.</li>
+  <li><strong>Google Sheet instead:</strong> select “Google Sheet” in the settings window, then “Sign in with Google…” →
+    “Create spreadsheet…” → tick your characters. Then play: kill a boss, go back to character selection, and the row
+    turns “Yes”.</li>
 </ol>
 <p>The program updates itself (it asks first). Prefer one archive with everything? The addon, the program, the source
 code and a step-by-step guide (in Russian) are in <code>MountSheetSync-&lt;version&gt;.zip</code> on the
@@ -72,14 +87,27 @@ How releases are built and signed: <a href="code-signing.html">code signing poli
 
 <section id="ru" lang="ru">
 <h2>Mount Sheet Sync — по-русски</h2>
-<p>Аддон для World of Warcraft и небольшая программа в трее Windows, которые сами ведут вашу Google-таблицу фарма
-маунтов: каких боссов персонажи убили на этой неделе, какие маунты уже собраны и что осталось.</p>
-<h3>Зачем вход через Google</h3>
-<p>Программа входит в ваш аккаунт Google только для того, чтобы создать таблицу маунтов на вашем Google Диске и
-вести её. Она просит доступ <code>drive.file</code> — только к файлам, которые создала сама, остальной Диск ей
-недоступен, — и адрес почты (<code>openid</code>, <code>email</code>), чтобы показать в настройках, какой аккаунт
-подключён. Программа работает на вашем компьютере и обращается к Google напрямую: наших серверов, аналитики и
-рекламы нет. Подробнее — в <a href="privacy.html#ru">политике конфиденциальности</a>.</p>
+<p>Аддон для World of Warcraft и небольшая программа в трее Windows, которые сами ведут ваш список фарма маунтов:
+каких боссов персонажи убили на этой неделе, какие маунты уже собраны и что осталось. Список хранится на вашем
+компьютере или, если хотите, в вашей Google-таблице.</p>
+<h3>Два варианта хранения</h3>
+<p>Вариант выбирается в настройках программы. Google-таблицу можно потом перенести на компьютер; перенести данные с
+компьютера в новую Google-таблицу пока нельзя.</p>
+<div class="card">
+<h3>На этом компьютере (по умолчанию)</h3>
+<p>Без аккаунта Google и без входа. Список лежит в файле в папке <code>%APPDATA%\MountSheetSync</code>, к Google программа
+не обращается. Всё видно в окне аддона в игре и в меню значка в трее, новые персонажи добавляются сами. На другой
+компьютер файл сам не перейдёт, поэтому папку стоит иногда копировать.</p>
+</div>
+<div class="card">
+<h3>В Google-таблице (по желанию)</h3>
+<p>Таблица на <em>вашем</em> Google Диске: по листу на персонажа, советы по скипам и фарму. Её можно открыть в браузере и
+править вручную. Только в этом варианте программа входит в ваш аккаунт Google, чтобы создать таблицу и вести её. Она
+просит доступ <code>drive.file</code> — только к файлам, которые создала сама, остальной Диск ей недоступен, — и адрес
+почты (<code>openid</code>, <code>email</code>), чтобы показать в настройках, какой аккаунт подключён.</p>
+</div>
+<p>В обоих случаях программа работает на вашем компьютере: наших серверов, аналитики и рекламы нет. Подробнее — в
+<a href="privacy.html#ru">политике конфиденциальности</a>.</p>
 <h3>Как начать</h3>
 <div class="buttons">
   <a class="button primary" href="https://github.com/Zlodyaga/mount-sheet-sync/releases/latest/download/MountSheetSync.exe">Скачать программу для Windows</a>
@@ -94,8 +122,12 @@ How releases are built and signed: <a href="code-signing.html">code signing poli
   <li>Она предложит установиться — нажмите <strong>«Да»</strong>. Программа поставится в папку пользователя (права
     администратора не нужны), появится в меню «Пуск», а удалить её можно в «Параметрах» Windows → «Приложения» →
     «Установленные приложения».</li>
-  <li>В окне настроек: «Войти через Google…» → «Создать таблицу…» → отметьте персонажей. Дальше просто играйте: убили
-    босса, вышли на выбор персонажа — в строке появилось «Да».</li>
+  <li><strong>На этом компьютере:</strong> этот вариант уже выбран в окне настроек, просто нажмите «Сохранить». Зайдите в
+    игру и выйдите на выбор персонажа: персонажи появятся сами. Дальше просто играйте: убили босса, вышли на выбор
+    персонажа — он отмечен.</li>
+  <li><strong>Если нужна Google-таблица:</strong> выберите в окне настроек «Таблица Google», затем «Войти через Google…» →
+    «Создать таблицу…» → отметьте персонажей. Дальше просто играйте: убили босса, вышли на выбор персонажа — в строке
+    появилось «Да».</li>
 </ol>
 <p>Программа обновляется сама (сначала спросит). Всё одним архивом — аддон, программа, исходный код и подробная
 инструкция — <code>MountSheetSync-&lt;версия&gt;.zip</code> на <a href="https://github.com/Zlodyaga/mount-sheet-sync/releases/latest">странице выпуска на GitHub</a>.</p>
