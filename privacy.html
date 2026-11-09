@@ -18,11 +18,15 @@
     <div class="langs"><a href="index.html">Mount Sheet Sync</a> · <a href="#ru">Русский</a></div>
   </div>
 </header>
-<p class="lead">Effective date: 24 October 2026</p>
+<p class="lead">Effective date: 9 November 2026</p>
 
 <p>Mount Sheet Sync consists of a World of Warcraft addon and a Windows program (“the program”). This policy explains
 what data the program accesses, how it is used, where it is stored and with whom it is shared. In short: your data stays
-on your computer and in your own Google Drive; the developer never receives it.</p>
+on your computer and, only if you choose a Google Sheet, in your own Google Drive; the developer never receives it.</p>
+
+<p><strong>By default the program does not use Google at all.</strong> A new installation keeps everything in a file on
+your computer and needs no sign-in. A Google Sheet is optional: the parts of this policy about Google user data apply
+only if you choose a Google Sheet in the program's settings and sign in with Google.</p>
 
 <h2>1. Google user data the program accesses</h2>
 <p>When you choose “Sign in with Google”, the program asks for these permissions:</p>
@@ -46,17 +50,19 @@ on your computer and in your own Google Drive; the developer never receives it.<
 
 <h2>3. Where the data is stored</h2>
 <ul>
-  <li><strong>Your Google Drive:</strong> the spreadsheet itself. It belongs to you; you can rename, share or delete it
+  <li><strong>Your Google Drive</strong> (only with a Google Sheet): the spreadsheet itself. It belongs to you; you can rename, share or delete it
     like any other file.</li>
   <li><strong>Your computer</strong>, folder <code>%APPDATA%\MountSheetSync</code>: settings (game folder, which spreadsheet
-    to use, language), the activity log, the list of records already sent, and the Google sign-in key
+    to use, language), the activity log, the list of records already sent and, without a Google Sheet, your mount list
+    in <code>local-data.json</code> (names and realms of your characters, the bosses they killed, collected mounts and
+    attempts), with its backup copy. If you signed in with Google, also the sign-in key
     (<code>google-token.dat</code>). The sign-in key is encrypted with Windows Data Protection (DPAPI) so that only your
     Windows user account on this computer can read it.</li>
   <li><strong>Your game folder:</strong> the addon's own files, including the “Remaining” list the program writes for
     the addon (<code>Interface\AddOns\MountSheetSync\SheetData.lua</code>).</li>
 </ul>
-<p>There is no server operated by the developer. The program communicates only with Google's servers
-(<code>accounts.google.com</code>, <code>oauth2.googleapis.com</code>, <code>sheets.googleapis.com</code>,
+<p>There is no server operated by the developer. Without a Google Sheet the program does not contact Google. With one, it
+communicates with Google's servers (<code>accounts.google.com</code>, <code>oauth2.googleapis.com</code>, <code>sheets.googleapis.com</code>,
 <code>www.googleapis.com</code>) over HTTPS. The program contains no analytics, telemetry or advertising.</p>
 <p>Once a day the program also asks GitHub (<code>api.github.com</code>) whether a new version has been released, and
 when you choose to update it downloads the release archive from GitHub. These requests carry no Google user data and
@@ -64,8 +70,8 @@ nothing about you beyond what any web request does (your IP address and the prog
 the check off in the icon menu (“Check for updates”).</p>
 
 <h2>4. Sharing</h2>
-<p>The developer does not receive, collect or share any of your data. Data leaves your computer only towards Google, to
-your own Google account, to provide the features described above. If you share the spreadsheet with someone in Google
+<p>The developer does not receive, collect or share any of your data. Without a Google Sheet, your game data does not leave your
+computer. With one, it goes only to Google, to your own Google account, to provide the features described above. If you share the spreadsheet with someone in Google
 Drive, that is your choice and is governed by Google's terms.</p>
 
 <h2>5. Keeping and deleting data</h2>
@@ -96,8 +102,12 @@ saved-variables file on your computer.</p>
 
 <section id="ru" lang="ru">
 <h2>Политика конфиденциальности (по-русски)</h2>
-<p>Дата вступления в силу: 24 октября 2026 г. Mount Sheet Sync — аддон для World of Warcraft и программа для Windows.
-Коротко: ваши данные остаются на вашем компьютере и на вашем Google Диске, разработчик их не получает.</p>
+<p>Дата вступления в силу: 9 ноября 2026 г. Mount Sheet Sync — аддон для World of Warcraft и программа для Windows.
+Коротко: ваши данные остаются на вашем компьютере и, только если вы выберете Google-таблицу, на вашем Google Диске;
+разработчик их не получает.</p>
+<p><strong>По умолчанию программа совсем не использует Google.</strong> Новая установка хранит всё в файле на вашем
+компьютере, входить никуда не нужно. Google-таблица необязательна: всё, что сказано ниже о данных Google, относится
+только к случаю, когда вы выбрали её в настройках программы и вошли через Google.</p>
 <h3>Какие данные Google использует программа</h3>
 <p><code>drive.file</code> — создать таблицу маунтов на вашем Google Диске и работать <strong>только с таблицами,
 которые создала сама программа</strong>; остальные файлы Диска ей недоступны. <code>openid</code> и
@@ -108,15 +118,18 @@ saved-variables file on your computer.</p>
 журнал работы на вашем компьютере. Данные не используются для рекламы, не продаются и не используются для обучения
 моделей искусственного интеллекта.</p>
 <h3>Где хранятся</h3>
-<p>Таблица — на вашем Google Диске. На компьютере — папка <code>%APPDATA%\MountSheetSync</code>: настройки, журнал,
-список отправленного и ключ входа в Google, зашифрованный Windows (DPAPI) для вашей учётной записи. Список «Осталось»
-программа кладёт в папку аддона в игре. Серверов разработчика нет; программа обращается только к серверам Google по
-HTTPS. Аналитики, телеметрии и рекламы нет.</p>
+<p>Google-таблица, если вы её выбрали, — на вашем Google Диске. На компьютере — папка
+<code>%APPDATA%\MountSheetSync</code>: настройки, журнал, список отправленного; без Google-таблицы — ваш список маунтов
+в <code>local-data.json</code> (имена и серверы персонажей, убитые боссы, собранные маунты, попытки) и его резервная
+копия; если вы вошли через Google — ключ входа, зашифрованный Windows (DPAPI) для вашей учётной записи. Список «Осталось»
+программа кладёт в папку аддона в игре. Серверов разработчика нет. Без Google-таблицы программа к Google не обращается; с ней — только к
+серверам Google по HTTPS. Аналитики, телеметрии и рекламы нет.</p>
 <p>Раз в день программа спрашивает GitHub (<code>api.github.com</code>), не вышла ли новая версия, а если вы решите
 обновиться — скачивает архив выпуска с GitHub. Данных Google и сведений о вас в этих запросах нет (только то, что есть в
 любом запросе: IP-адрес, название и версия программы). Проверку можно выключить в меню значка («Проверять обновления»).</p>
 <h3>Передача</h3>
-<p>Разработчик ваши данные не получает и никому не передаёт.</p>
+<p>Разработчик ваши данные не получает и никому не передаёт. Без Google-таблицы игровые данные не покидают ваш
+компьютер; с ней они уходят только в ваш аккаунт Google.</p>
 <h3>Удаление</h3>
 <p>«Выйти» в настройках программы удаляет ключ входа и отзывает доступ у Google. Отозвать доступ можно и на
 <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Удаление папки
